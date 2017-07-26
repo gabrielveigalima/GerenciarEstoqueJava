@@ -26,9 +26,13 @@ public class Cad_Cidade extends javax.swing.JFrame {
     
     public void atualiza_combo_box_cidade(){
         try{
-            cb_pesquisa.removeAllItems();
             con_cidade.executasql("SELECT * FROM cidade order by "+ordenacao);
+            
+            cb_pesquisa.removeAllItems();
+            
+            
             while(con_cidade.resultset.next()){
+                
                 cb_pesquisa.addItem(con_cidade.resultset.getString("nome"));
             }
             con_cidade.resultset.first();
